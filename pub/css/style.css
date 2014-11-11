@@ -1,0 +1,103 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+html *{
+	padding:0;
+	margin:0;
+}
+
+body{
+	font-size: .9em;
+	font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5{
+	margin:1em 0 .5em 0;
+}
+
+p{
+	margin: .5em 0 .25em 0;
+}
+/*general classes*/
+.clear{
+	clear:both;
+}
+
+.flash{
+	margin:10px 0;
+}
+.flash-message{
+	padding:5px;
+	margin:5px 0;
+}
+.flash-message.flash-success{
+	background-color:#3d3;
+}
+
+.flash-message.flash-error{
+	background-color:#d33;
+}
+.flash-message.flash-warning{
+	background-color:#dd3;
+}
+.flash-message span.close{
+	float:right;
+	cursor:pointer;
+	color:#fff;
+}
+
+
+/*layout*/
+#head{
+	padding:10px;
+	background-color:#ddd;
+}
+#wrap{
+	width:960px;
+	margin:0 auto;
+}
+#content{
+
+}
+
+#SignInForm{
+	border:1px solid #666;
+	padding:10px;
+}
+
+form .form-row{
+	float:left;
+	width:100%;
+	padding:5px 0;
+}
+form label{
+	float:left;
+	width:150px;
+}
+
+form input[type="text"],
+form input[type="password"]{
+	float:left;
+	width:200px;
+	outline:none;
+	border:1px solid #666;
+	padding:3px 6px;
+}
+form input[type="text"]:focus,
+form input[type="password"]:focus{
+	border-color:#0f0;
+}
+
+form input[type="submit"]{
+	outline:none;
+	border:1px solid #000;
+	background-color:#ccc;
+	border-radius:2px;
+	padding:10px 30px;
+	color:#333;
+	font-weight:bold;
+}
+
+form input[type="submit"]:hover,
+form input[type="submit"]:active,
+form input[type="submit"]:focus{
+	border-color:#0f0;
+}
