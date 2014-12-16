@@ -20,7 +20,18 @@ class LoginModel extends \Model{
 		parent::__construct();
 		$this->loginDAL = new \model\dal\LoginDAL();
 	}
-	
+
+    public function saveUserNameSession($userName){
+        $_SESSION['usernameKey'] = $userName;
+    }
+    public function getUserNameSession(){
+        $name = "";
+        if(isset($_SESSION['usernameKey'])){
+            $name = $_SESSION['usernameKey'];
+            unset($_SESSION['usernameKey']);
+        }
+        return $name;
+    }
 	/**
 	*	Session-stuff
 	*/

@@ -10,8 +10,6 @@ class LoginController extends \Controller{
 	
 	private $view;
 	private $loginModel;
-
-    private  $errorMSG;
 	
 	public function __construct(){
 		parent::__construct();
@@ -46,14 +44,13 @@ class LoginController extends \Controller{
                 $strPassword = $this->view->getSignInPassword();
                 $strRepeatPassword = $this->view->getSignInRepeatPassword();
                 $r = $this->loginModel->register($strUsername, $strPassword, $strRepeatPassword);
-                if ($r = true) {
+                if ($r === true) {
                     $this->view->addFlash(\View\LoginView::RegistrationSuccess, \View::FlashClassSuccess);
                     $this->redirectTo('Login');
                 } else {
                     $this->view->addFlash(\View\LoginView::RegistrationFailSuccess, \View::FlashClassError);
                     $this->redirectTo('Login', 'register');
                 }
-
             } catch (\Exception $e) {
                 $this->view->addFlash($e->getMessage(), \View::FlashClassError);
                 $this->redirectTo('Login', 'register');

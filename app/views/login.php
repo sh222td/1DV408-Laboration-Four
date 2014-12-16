@@ -62,6 +62,7 @@ class LoginView extends \View{
 			throw new \Exception(self::EmptyUserName);
 		}
 		$strUsername = trim($_POST['username']);
+        $this->loginModel->saveUserNameSession($strUsername);
 		if(preg_match('/[^a-z0-9]/i', $strUsername)){
             throw new \Exception(self::NotAllowedCharsUsername);
 		}
@@ -176,7 +177,7 @@ class LoginView extends \View{
 	*/
 	public function add(){
 		return '
-			<h2>Not signed in</h2>
+			<h2>Not test signed in</h2>
 			' . $this->RenderFlash() .'
 			<div id="RegisterText">
 			    <a href="' . ROOT_PATH . 'Login/Register">Register new user</a>
@@ -185,7 +186,7 @@ class LoginView extends \View{
 				<form method="post" action="' . ROOT_PATH . 'Login/Create">
 					<div class="form-row">
 						<label for="username">Username</label>
-						<input type="text" name="username" id="username" />
+						<input type="text" name="username" value="' . $this->loginModel->getUserNameSession() . '" id="username" />
 					</div>
 					<div class="form-row">
 						<label for="password">Password</label>
@@ -234,7 +235,7 @@ class LoginView extends \View{
 				<form method="post" action="' . ROOT_PATH . 'Login/Register">
 					<div class="form-row">
 						<label for="username">Username</label>
-						<input type="text" name="username" id="username" />
+						<input type="text" name="username" value="' . $this->loginModel->getUserNameSession() . '" id="username" />
 					</div>
 					<div class="form-row">
 						<label for="password">Password</label>
