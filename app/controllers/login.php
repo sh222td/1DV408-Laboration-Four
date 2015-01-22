@@ -37,7 +37,6 @@ class LoginController extends \Controller{
 	}
 
     public function register(){
-        $this->view->render($this->view->register());
         if ($this->view->checkRegistrationButton()) {
             try {
                 $strUsername = $this->view->getSignInUserName();
@@ -56,7 +55,7 @@ class LoginController extends \Controller{
                 $this->redirectTo('Login', 'register');
             }
         }
-
+        $this->view->render($this->view->register());
     }
 	
 	/**
